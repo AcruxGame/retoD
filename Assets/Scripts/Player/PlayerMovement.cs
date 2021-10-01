@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -28,5 +29,10 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         dirVector = context.ReadValue<Vector2>();
+    }
+
+    public void scenechange(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("prueba");
     }
 }
