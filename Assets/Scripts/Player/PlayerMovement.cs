@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,21 +17,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-
-
     private void FixedUpdate()
     {
         rb.velocity = dirVector * movementSpeed * Time.fixedDeltaTime;
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public void Move(Vector2 vector)
     {
-        dirVector = context.ReadValue<Vector2>();
+        dirVector = vector;
     }
 
-    public void scenechange(InputAction.CallbackContext context)
-    {
-        SceneManager.LoadScene("prueba");
-    }
 }
