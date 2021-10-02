@@ -8,6 +8,8 @@ public class PlayerController : Singleton<PlayerController>
     PlayerMovement movement;
     PlayerInteract interaction;
     Resonator resonator;
+    InventoryManager inventory;
+    bool canMove = true;
 
     public override void Awake()
     {
@@ -16,11 +18,14 @@ public class PlayerController : Singleton<PlayerController>
         movement = GetComponent<PlayerMovement>();
         interaction = GetComponent<PlayerInteract>();
         resonator = GetComponent<Resonator>();
+        inventory = GetComponent<InventoryManager>();
     }
+
 
     private void Start()
     {
-        pInputs.GetReferences(movement, interaction, resonator);
+        pInputs.GetReferences(movement, interaction, resonator, inventory);
+        inventory.inventoryHandler += CanMoveSwitch;
     }
 
     // Update is called once per frame
@@ -29,5 +34,9 @@ public class PlayerController : Singleton<PlayerController>
         
     }
 
+    private void CanMoveSwitch() {
+        canMove = !inventory.Inventory.activeSelf;
+        movement.enabled = canMove;
+    }
 
 }

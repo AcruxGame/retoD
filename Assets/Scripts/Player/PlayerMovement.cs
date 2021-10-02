@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = dirVector * movementSpeed * Time.fixedDeltaTime;
     }
 
+    private void OnDisable()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
     public void Move(Vector2 vector)
     {
         dirVector = vector;
