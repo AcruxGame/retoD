@@ -21,13 +21,11 @@ public class PlayerController : Singleton<PlayerController>
         inventory = GetComponent<InventoryManager>();
     }
 
-    private void OnEnable() {
-        inventory.inventoryHandler 
-    }
 
     private void Start()
     {
         pInputs.GetReferences(movement, interaction, resonator, inventory);
+        inventory.inventoryHandler += CanMoveSwitch;
     }
 
     // Update is called once per frame
@@ -37,7 +35,8 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     private void CanMoveSwitch() {
-        canMove = inventory.Inventory.enabled;
+        canMove = !inventory.Inventory.activeSelf;
+        movement.enabled = canMove;
     }
 
 }

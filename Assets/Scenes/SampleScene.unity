@@ -589,7 +589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1117052605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 1320362911}
   - component: {fileID: 1320362903}
   - component: {fileID: 1320362912}
+  - component: {fileID: 1320362913}
   - component: {fileID: 1320362908}
   - component: {fileID: 1320362909}
   m_Layer: 0
@@ -863,12 +864,12 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1320362910}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: PlayerInputs, Assembly-CSharp
+        m_MethodName: InventoryInteraction
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -980,6 +981,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0009708b17fdab14bb83ef2de1fcaf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1320362913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320362902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a84ab5b1acc94049889e8ede96b5eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 1117052604}
 --- !u!1 &1459806493
 GameObject:
   m_ObjectHideFlags: 0
