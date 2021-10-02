@@ -8,11 +8,14 @@ public class PlayerInputs : MonoBehaviour
     PlayerMovement movement;
     PlayerInteract interact;
     Resonator resonator;
-    public void GetReferences(PlayerMovement playerMovement, PlayerInteract playerInteract, Resonator playerResonator)
+    InventoryManager inventory;
+
+    public void GetReferences(PlayerMovement playerMovement, PlayerInteract playerInteract, Resonator playerResonator, InventoryManager playerInventory)
     {
         movement = playerMovement;
         interact = playerInteract;
         resonator = playerResonator;
+        inventory = playerInventory;
     }
 
 
@@ -31,5 +34,10 @@ public class PlayerInputs : MonoBehaviour
     public void ResonatorInteraction(InputAction.CallbackContext context)
     {
        if(context.started) resonator.ResonatorSwitch();
+    }
+
+    public void InventoryInteraction(InputAction.CallbackContext context)
+    {
+       if(context.started) inventory.InventorySwitch();
     }
 }
