@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
+    PlayerInputs pInputs;
     PlayerMovement movement;
+    PlayerInteract interaction;
 
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        pInputs = GetComponent<PlayerInputs>();
         movement = GetComponent<PlayerMovement>();
+        interaction = GetComponent<PlayerInteract>();
     }
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        pInputs.GetReferences(movement, interaction);
     }
 
     // Update is called once per frame
