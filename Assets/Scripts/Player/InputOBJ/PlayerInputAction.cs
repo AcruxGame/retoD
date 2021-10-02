@@ -33,6 +33,22 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""609ea044-860b-456c-9225-da5a5236a7a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Resonator"",
+                    ""type"": ""Button"",
+                    ""id"": ""f229f8a2-d991-4ada-9154-c494e31899a5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -143,6 +159,28 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ddd0490-4c89-400c-bba8-94b52b7d5b1f"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16f97641-9eab-4d8b-8d20-8da4377c10bd"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Resonator"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -722,6 +760,8 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_Resonator = m_Player.FindAction("Resonator", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -785,12 +825,16 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_Resonator;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
         public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @Resonator => m_Wrapper.m_Player_Resonator;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -806,6 +850,12 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Resonator.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResonator;
+                @Resonator.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResonator;
+                @Resonator.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResonator;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -816,6 +866,12 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
+                @Resonator.started += instance.OnResonator;
+                @Resonator.performed += instance.OnResonator;
+                @Resonator.canceled += instance.OnResonator;
             }
         }
     }
@@ -974,6 +1030,8 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
+        void OnResonator(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

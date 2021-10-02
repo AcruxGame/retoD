@@ -20,6 +20,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "609ea044-860b-456c-9225-da5a5236a7a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Resonator",
+                    "type": "Button",
+                    "id": "f229f8a2-d991-4ada-9154-c494e31899a5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -130,6 +146,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ddd0490-4c89-400c-bba8-94b52b7d5b1f",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16f97641-9eab-4d8b-8d20-8da4377c10bd",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Resonator",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

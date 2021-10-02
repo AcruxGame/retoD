@@ -7,23 +7,14 @@ public class PlayerInputs : MonoBehaviour
 {
     PlayerMovement movement;
     PlayerInteract interact;
-    public void GetReferences(PlayerMovement playerMovement, PlayerInteract playerInteract)
+    Resonator resonator;
+    public void GetReferences(PlayerMovement playerMovement, PlayerInteract playerInteract, Resonator playerResonator)
     {
         movement = playerMovement;
         interact = playerInteract;
+        resonator = playerResonator;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void MovementInput(InputAction.CallbackContext context)
     {
@@ -35,5 +26,10 @@ public class PlayerInputs : MonoBehaviour
         if (context.started) interact.EnableInteract();
 
         if (context.canceled) interact.DisableInteract();
+    }
+
+    public void ResonatorInteraction(InputAction.CallbackContext context)
+    {
+       if(context.started) resonator.ResonatorSwitch();
     }
 }
