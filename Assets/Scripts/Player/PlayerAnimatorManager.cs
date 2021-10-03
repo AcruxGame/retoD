@@ -28,7 +28,6 @@ public class PlayerAnimatorManager : MonoBehaviour
         if(Mathf.Abs(playerDirectionVector.x) == 1)
         {
             anim.SetFloat("Direction", 1);
-            anim.SetFloat("FacinDirection", 1);
 
             if(playerDirectionVector.x == -1)//flip
             {
@@ -41,12 +40,12 @@ public class PlayerAnimatorManager : MonoBehaviour
         else if(playerDirectionVector.y == 1 && playerDirectionVector.x == 0)
         {
             anim.SetFloat("Direction", 2);
-            anim.SetFloat("FacinDirection", 2);
+
         }
         else if (playerDirectionVector.y == -1 && playerDirectionVector.x == 0)
         {
             anim.SetFloat("Direction", 0);
-            anim.SetFloat("FacinDirection", 0);
+
         }
 
 
