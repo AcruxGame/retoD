@@ -6,10 +6,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    
+    System.Action<bool> callback;
     [SerializeField] float movementSpeed;
 
     Vector2 dirVector;
+
+    bool isMoving;
+
+    public bool IsMoving { get => isMoving; private set => isMoving = value; }
+    public Vector2 DirVector { get => dirVector;private set => dirVector = value; }
+
+    public void GetReferences(System.Action<bool> call)
+    {
+        callback = call;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     public void Move(Vector2 vector)
     {
         dirVector = vector;
+        isMoving = dirVector != Vector2.zero;
+        callback(isMoving);
     }
 
 }
