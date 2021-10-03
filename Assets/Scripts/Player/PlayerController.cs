@@ -48,6 +48,9 @@ public class PlayerController : Singleton<PlayerController>
     private void ReadMovingState(bool status)
     {
         playerAnim.IsMoving = status;
+        playerAnim.UpdateBooleans();
+        playerAnim.PlayerDirectionVector = movement.DirVector;
+        playerAnim.UpdateValues();
     }
 
 

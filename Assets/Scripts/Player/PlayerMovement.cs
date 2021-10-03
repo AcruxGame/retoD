@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     bool isMoving;
 
     public bool IsMoving { get => isMoving; private set => isMoving = value; }
+    public Vector2 DirVector { get => dirVector;private set => dirVector = value; }
 
     public void GetReferences(System.Action<bool> call)
     {
@@ -42,7 +43,5 @@ public class PlayerMovement : MonoBehaviour
         isMoving = dirVector != Vector2.zero;
         callback(isMoving);
     }
-
-
 
 }
