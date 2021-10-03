@@ -11,17 +11,18 @@ public class PlayerAnimatorManager : MonoBehaviour
     public bool IsMoving { get => isMoving; set => isMoving = value; }
     public Vector2 PlayerDirectionVector { get => playerDirectionVector; set => playerDirectionVector = value; }
 
+
     public void GetReferences(Animator playerAnim)
     {
         anim = playerAnim;
     }
 
 
-
     public void UpdateBooleans()
     {
         anim.SetBool("isWalking", isMoving);
     }
+
 
     public void UpdateValues()
     {
@@ -32,7 +33,8 @@ public class PlayerAnimatorManager : MonoBehaviour
             if(playerDirectionVector.x == -1)//flip
             {
                 transform.localScale = new Vector3(1, 1, 1);
-            }else if (playerDirectionVector.x == 1)
+            }
+            else if (playerDirectionVector.x == 1)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
@@ -40,14 +42,11 @@ public class PlayerAnimatorManager : MonoBehaviour
         else if(playerDirectionVector.y == 1 && playerDirectionVector.x == 0)
         {
             anim.SetFloat("Direction", 2);
-
         }
         else if (playerDirectionVector.y == -1 && playerDirectionVector.x == 0)
         {
             anim.SetFloat("Direction", 0);
-
         }
-
 
     }
 }
