@@ -21,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
         callback = call;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
