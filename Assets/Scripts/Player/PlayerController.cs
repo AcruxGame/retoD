@@ -11,6 +11,8 @@ public class PlayerController : Singleton<PlayerController>
     InventoryManager inventory;
     PlayerAnimatorManager playerAnim;
     Animator anim;
+    SpriteRenderer sRenderer;
+    [SerializeField] Color nightColor;
     bool canMove = true;
 
     public override void Awake()
@@ -23,6 +25,7 @@ public class PlayerController : Singleton<PlayerController>
         inventory = GetComponent<InventoryManager>();
         playerAnim = GetComponent<PlayerAnimatorManager>();
         anim = GetComponent<Animator>();
+        sRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -32,12 +35,7 @@ public class PlayerController : Singleton<PlayerController>
         playerAnim.GetReferences(anim);
         movement.GetReferences(ReadMovingState);
         inventory.inventoryHandler += CanMoveSwitch;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DayCycle.TimeHandler += UpdateColors;
     }
 
     private void CanMoveSwitch() {
@@ -53,5 +51,17 @@ public class PlayerController : Singleton<PlayerController>
         playerAnim.UpdateValues();
     }
 
+    private void UpdateColors()
+    {
+        if (DayCycle.ItIsDay)
+        {
+            sRenderer.color = Color.white;
+        }
+        else
+        {
+            sRenderer.color = nightColor;
+        }
+
+    }
 
 }

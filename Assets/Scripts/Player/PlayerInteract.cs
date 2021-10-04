@@ -20,7 +20,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.CompareTag("Interactuable") && interacting && !interacted) 
         {
-
+            collision.GetComponent<IInteractable>().Interact();
             Debug.Log("Interactuando");
             interacted = true;
         }
