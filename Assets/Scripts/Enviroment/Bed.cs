@@ -16,6 +16,7 @@ public class Bed : MonoBehaviour, IInteractable
     {
         if (!DayCycle.ItIsDay)
         {
+            Status.ResetGames();
              pastNight.NextDay();
         }else
         {
