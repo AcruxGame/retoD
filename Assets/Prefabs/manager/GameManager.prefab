@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4706396306333293995}
   - component: {fileID: 4706396306333293992}
   - component: {fileID: 167439245}
+  - component: {fileID: 1305205237}
+  - component: {fileID: 285947132}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -56,3 +58,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c74dc77afb17064680314bf4385573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1305205237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706396306333293993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12224b2312751e24190fa213a7556290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &285947132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706396306333293993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd09431a38d3d84dab5673fe2a6f377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minijuego1Completado: 0
+  minijuego2Completado: 0
