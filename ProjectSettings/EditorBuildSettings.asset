@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 3a68ae5f2cecb6d41aff020ed03cffb2
+  - enabled: 1
+    path: Assets/Scenes/Cuarto_Ana.unity
+    guid: 2ffd188e21cc3bd47a0320eb3a15cc61
+  - enabled: 1
+    path: Assets/Scenes/Parqueadero.unity
+    guid: 2bafee01e697d3641aa780038042f326
+  - enabled: 1
+    path: Assets/Scenes/Industria.unity
+    guid: a064e4f6b27ad93418ff4973be26b208
+  - enabled: 1
+    path: Assets/Scenes/Minijuego1.unity
+    guid: e25cf1df8204f7c46bdeb8a3472a5a45
+  - enabled: 1
+    path: Assets/Scenes/Minijuego2.unity
+    guid: 94ac2100807041c4ca5742cf3999e82c
+  m_configObjects: {}
