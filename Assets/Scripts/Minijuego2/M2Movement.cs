@@ -44,6 +44,7 @@ public class M2Movement : MonoBehaviour
 
     public void Regresar()
     {
+        Status.Juego2Terminado();
         SceneManager.LoadScene("Industria");
     }
 

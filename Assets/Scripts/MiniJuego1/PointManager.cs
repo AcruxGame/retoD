@@ -42,6 +42,7 @@ public class PointManager : MonoBehaviour
 
     public void Regresar()
     {
+        Status.Juego1Terminado();
         SceneManager.LoadScene("Industria");
     }
 }

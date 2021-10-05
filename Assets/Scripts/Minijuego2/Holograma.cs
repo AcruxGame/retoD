@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Olograma : MonoBehaviour,IInteractable
+public class Holograma : MonoBehaviour,IInteractable
 {
     GameObject collSecundario;
     private void Start()
@@ -15,7 +16,14 @@ public class Olograma : MonoBehaviour,IInteractable
     }
     public void Interact()
     {
-        
+        if (Minijuego2.notasRecogidas)
+        {
+            SceneManager.LoadScene("Minijuego2");
+        }
+        else
+        {
+            Debug.Log("No se han recogido las notas");
+        }
     }
 
     [SerializeField] Image interactMessage;
