@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MesaDeDiseño : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class MesaDeDiseño : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public void Interact()
     {
-        
+        if (!Status.minijuego1Completado)
+        {
+            SceneManager.LoadScene("Minijuego1");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (Status.minijuego1Completado)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
+
 }
