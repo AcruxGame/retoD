@@ -18,6 +18,10 @@ public class DaySwitch : MonoBehaviour
         UpdateRoom();
     }
 
+    private void OnDisable()
+    {
+        DayCycle.TimeHandler -= UpdateRoom;
+    }
     private void UpdateRoom()
     {
         if (DayCycle.ItIsDay)

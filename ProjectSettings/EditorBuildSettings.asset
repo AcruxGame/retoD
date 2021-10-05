@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cuarto_Ana.unity
     guid: 2ffd188e21cc3bd47a0320eb3a15cc61
+  - enabled: 1
+    path: Assets/Scenes/Parqueadero.unity
+    guid: 2bafee01e697d3641aa780038042f326
   m_configObjects: {}

@@ -18,6 +18,10 @@ public class CuartoAna : MonoBehaviour
         DayCycle.TimeHandler += UpdateRoom;
         UpdateRoom();
     }
+    private void OnDisable()
+    {
+        DayCycle.TimeHandler -= UpdateRoom;
+    }
 
     private void UpdateRoom()
     {

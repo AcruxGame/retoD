@@ -8,11 +8,11 @@ public class InteractMessage : MonoBehaviour
     [SerializeField] Image interactMessage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        interactMessage.gameObject.SetActive(true);
+        if(collision.CompareTag("Player")) interactMessage.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        interactMessage.gameObject.SetActive(false);
+        if (collision.CompareTag("Player")) interactMessage.gameObject.SetActive(false);
     }
 }
